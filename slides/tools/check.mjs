@@ -99,6 +99,9 @@ try {
         }
         return { id: slide.id, title: slide.querySelector('h1,h2')?.textContent, problems };
       });
+      if (result.problems.length) {
+        await page.screenshot({ path: path.join(output, `failure-${viewport.width}.png`), animations: 'disabled' });
+      }
       assert.deepEqual(result.problems, [], `${folder}/${result.id} at ${viewport.width}×${viewport.height}: ${result.problems.join('; ')}`);
       if (viewport.width === 1440) {
         checkedSlides.push(result);
@@ -307,6 +310,14 @@ try {
     assert.deepEqual(outlines.map(outline => outline.active), [[0], [1], [2], [3], [3]]);
   }
   if (exportPDF) {
+    if (folder === 'lecture-03') {
+      // Reproduce a chart fetch that finishes after Reveal replaces the print
+      // slide nodes; the demonstration must initialize on the final chart.
+      await page.route('**/lecture-03/assets/ngram-review.json', async route => {
+        await page.waitForFunction(() => document.querySelector('.pdf-page'));
+        await route.continue();
+      });
+    }
     await page.goto(url + '?print-pdf', { waitUntil: 'networkidle' });
     await page.evaluate(() => window.courseReady);
     await page.waitForFunction(expected => document.querySelectorAll('.pdf-page').length === expected, count);
