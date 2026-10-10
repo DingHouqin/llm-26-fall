@@ -111,7 +111,7 @@ window.courseTranslations = {
   "Weight tying (Press and Wolf, 2017)": "权重共享（Press 与 Wolf，2017）",
   "Quiz 1": "小测 1",
   "Sep 30": "9 月 30 日",
-  "Neural language models and recurrent attention": "神经语言模型与循环网络中的注意力",
+  "Neural LMs and Recurrent Attention": "神经语言模型与循环网络中的注意力",
   "How can a model retain and select useful context?": "模型如何保留并选择有用的上下文？",
   "Feedforward LM training; recurrent states and gradients; LSTM memory; additive alignment in an RNN encoder–decoder.": "前馈语言模型训练；循环状态与梯度；LSTM 记忆；RNN 编码器–解码器中的加性对齐。",
   "Fit a tiny batch, trace recurrent memory and gates, and calculate a weighted source context.": "拟合微型批次，追踪循环记忆与门控，并计算加权的源序列上下文。",

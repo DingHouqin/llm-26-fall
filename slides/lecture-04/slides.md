@@ -2,7 +2,7 @@
 
 <p class="eyebrow">CS40008.01</p>
 
-# Neural language models and recurrent attention
+# Neural LMs and Recurrent Attention
 
 <p class="subtitle">Lecture 04 – NLP and LLMs</p>
 

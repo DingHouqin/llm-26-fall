@@ -1,4 +1,4 @@
-# Lecture 04: Neural language models and recurrent attention
+# Lecture 04: Neural LMs and Recurrent Attention
 
 **Class date:** September 30, 2026 (Asia/Shanghai).
 **Revision:** October 10, 2026 (Asia/Shanghai), following the instructor's decision
