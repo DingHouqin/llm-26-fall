@@ -1,22 +1,25 @@
 # Lecture 05 assets
 
-All diagrams and numerical figures are original course teaching assets. The
-sentences, token IDs, and browser vectors are invented toy data. No third-party
-figure screenshots, datasets, model weights, or student submissions are copied.
+The editable diagrams and numerical figures are original course teaching assets.
+The recurrent-attention illustration is reused from the instructor-supplied
+PowerPoint as documented below. Sentences, token IDs, and browser vectors are
+invented toy data. No datasets, model weights, or student submissions are copied.
 
 | Files | Content and provenance |
 | --- | --- |
+| `rnn-attention.png` | Unmodified 1256 × 577 image from slide 8 (Context vector) of the instructor-supplied 83-slide `lecture-05-slides-transformers.pptx`; extracted from `ppt/media/image11.png` for the slide 4 recap |
 | `encoder-context.svg` and `.excalidraw` | Fixed context versus a context selected at each target step; follows Bahdanau et al. (2015), §§2–3 |
 | `multihead-path.svg` and `.excalidraw` | Q/K/V projections, head split, per-head attention, merge, and output projection; follows the mechanism in Vaswani et al., §3.2.2 |
 | `residual-block.svg` and `.excalidraw` | Two pre-LN residual sublayers; distinguishes normalization placement from the original post-LN model |
 | `decoder-model.svg` and `.excalidraw` | Token/position embeddings, two decoder blocks, final norm, and tied vocabulary readout used in the notebook |
 | `causal-mask.svg` and `.excalidraw` | The four input slots and shifted next-token targets; the diagonal is allowed |
+| `attention-values.json` and `attention-demo.json` | Three-position causal example moved from Lecture 04; values updated to match the Lecture 05 worked example |
 | `position-values.json` | Four word labels, identity-matrix vectors, and the permutation `[3,1,2,0]`; matches E02 |
 | `position-demo.json` | Printable initial Plotly state: original order, positions off |
 | `position-frequencies.json` | Formula-generated sine coordinates for width 8 over positions 0–31; frequencies 1, 0.1, and 0.01 radians per position |
 | `norm-comparison.json` | Measured pre/post-LN loss at every update 0–200, plus the `log(2)/4` floor; includes machine-readable provenance in `layout.meta` |
 
-The diagrams are editable Excalidraw scenes, exported with
+The SVG diagrams are editable Excalidraw scenes, exported with
 `@excalidraw/excalidraw` 0.18.1. They follow the previous lectures' canvas,
 font sizes, and palette. Edit the scene and export its SVG alongside it; the
 classroom browser loads only the SVG. Sources for the adapted concepts are
@@ -26,6 +29,26 @@ classroom browser loads only the SVG. Sources for the adapted concepts are
 [Xiong et al. (2020)](https://proceedings.mlr.press/v119/xiong20b.html), and
 the instructor's 2025 Lecture 05. The [source map](../teaching-plan.md#map-from-all-85-source-slides)
 accounts for that whole deck.
+
+The supplied recurrent-attention figure uses `i` for the target step,
+`h^d_(i-1)` for the preceding decoder state, and `h^e_j` for an encoder state.
+Slide 4's notes map these to the lecture's notation. Its score annotation is a dot
+product; the visible caption distinguishes this from Lecture 04's additive
+Bahdanau score and flags the figure's own decoder/output indexing.
+The source image is preserved, including its example weights.
+The source PowerPoint remains unchanged. Image SHA-256:
+`04cd8e95ea545dd51bf4a4b068253f2e4bc1010608380805a04aed136cab4014`.
+
+## Browser causal example
+
+[attention-demo.js](../attention-demo.js) computes the head and figure;
+[causal-demo.js](../causal-demo.js) wires the query/mask/value/reset controls.
+Query 2 uses one-based chart labels and corresponds to zero-based slot 1 in
+slides 8–9. Its scores are `(1,0,1)` and values `(1,0)`, `(0,2)`, `(2,1)`.
+The initial masked output is `(0.731059,0.537883)`. Changing V3 adds `(10,10)`;
+Q2 is unchanged with the mask and changes without it. Reset restores the initial
+state, also used for printing. All assets are local and both demos initialize
+through [demo.js](../demo.js).
 
 ## Browser position example
 

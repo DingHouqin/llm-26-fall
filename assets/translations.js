@@ -123,7 +123,7 @@ window.courseTranslations = {
   "Oct 14": "10 月 14 日",
   "Attention and the Transformer": "注意力与 Transformer",
   "How does attention select useful context, and how does it lead to the Transformer?": "注意力如何选择有用的上下文，又如何发展为 Transformer？",
-  "From RNN/LSTM limitations and the encoder–decoder bottleneck to learned alignment; queries, keys, values, and softmax; causal self-attention; multi-head attention, positions, and Transformer blocks.": "从 RNN/LSTM 的局限和编码器–解码器的信息瓶颈到学习对齐；查询、键、值与 softmax；因果自注意力；多头注意力、位置信息与 Transformer 模块。",
+  "Brief recurrent-alignment recap; queries, keys, values, and scaled dot products; causal self-attention; multi-head attention, positions, and Transformer blocks.": "简要回顾循环模型中的对齐；查询、键、值与缩放点积；因果自注意力；多头注意力、位置信息与 Transformer 模块。",
   "Compute attention weights and outputs on a small example, verify causal masking, and trace shapes through a decoder block.": "通过小例子计算注意力权重与输出，验证因果掩码，并追踪解码器模块中的张量形状。",
   "Slides and notebook:": "课件与笔记本：",
   "In preparation.": "准备中。",
